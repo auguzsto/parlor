@@ -1,0 +1,12 @@
+services:
+  parlor-app:
+    command: tail -f /dev/null
+    container_name: parlor-app
+    hostname: parlor-app
+    build:
+      context: .
+      dockerfile: ./.docker/app/Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./app:/app

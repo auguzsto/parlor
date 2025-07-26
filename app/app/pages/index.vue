@@ -1,0 +1,3 @@
+<template>
+    Parlor app
+</template>

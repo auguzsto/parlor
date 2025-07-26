@@ -1,9 +1,9 @@
 <template>
-    Início
+    Financeiro
 </template>
 
 <script setup lang="ts">
 definePageMeta({
-    title: "Início"
+    title: "Financeiro"
 })
 </script>

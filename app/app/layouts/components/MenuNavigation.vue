@@ -1,6 +1,7 @@
 <template>
     <div v-for="item in items">
         <v-list-item 
+            color="primary"
             nuxt :to="item.link" 
             :title="item.title" 
             :prepend-icon="item.icon">

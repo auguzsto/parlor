@@ -7,7 +7,7 @@
         </v-navigation-drawer>
         <v-app-bar>
             <v-app-bar-nav-icon @click.stop="drawer = !drawer" ></v-app-bar-nav-icon>
-            <v-app-bar-title>{{ $route.meta.title ?? "App" }}</v-app-bar-title>
+            <v-app-bar-title>{{ titlePage }}</v-app-bar-title>
         </v-app-bar>
         <v-main>
             <v-container>
@@ -21,9 +21,14 @@
 import Avatar from './components/Avatar.vue';
 import MenuNavigation from './components/MenuNavigation.vue';
 
-const drawer = ref<boolean>(false)
-const route = useRoute()
 useSeoMeta({
     title: "Parlor - Plataforma para gerenciar seu salão de beleza",
+})
+
+const route = useRoute()
+const drawer = ref<boolean>(false)
+const titlePage = ref<string>("App")
+watchEffect(() => {
+    titlePage.value = route.meta.title as string
 })
 </script>

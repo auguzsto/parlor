@@ -22,7 +22,7 @@ import Avatar from './components/Avatar.vue';
 import MenuNavigation from './components/MenuNavigation.vue';
 
 useSeoMeta({
-    title: "Parlor - Plataforma para gerenciar seu salão de beleza",
+    title: "Parlor - Plataforma para gerenciar sua barbearia",
 })
 
 const route = useRoute()

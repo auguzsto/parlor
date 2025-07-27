@@ -16,6 +16,9 @@
 
 <script setup lang="ts">
 import type { VNodeRef } from 'vue'
+definePageMeta({
+    title: "Agenda"
+})
 
     interface Event {
         title: string,

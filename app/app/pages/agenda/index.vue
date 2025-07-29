@@ -1,21 +1,30 @@
 <template>
-    <div>
-        <v-sheet>
-            <v-calendar
-                ref="calendar"
+    <v-row no-gutters>
+        <v-col cols="3">
+            <v-date-picker
+                show-adjacent-months
+                title="Selecione uma data"
                 v-model="today"
-                :events="events"
-                color="primary"
-                view-mode="week"
-                :interval-height="80"
             >
-            </v-calendar>
-        </v-sheet>
-    </div>
+                <template v-slot:actions>
+                    <v-btn variant="outlined" @click="today = new Date()">
+                        Hoje
+                    </v-btn>
+                </template>
+            </v-date-picker>
+        </v-col>
+        <v-col cols="9">
+            <Calendar 
+                :dateSelected="today"
+                :categories="categories"
+            />
+        </v-col>
+    </v-row>
 </template>
 
 <script setup lang="ts">
-import type { VNodeRef } from 'vue'
+import Calendar from '../../components/Calendar.vue'
+
 definePageMeta({
     title: "Agenda"
 })
@@ -28,7 +37,8 @@ definePageMeta({
         allDay?: boolean
     }
 
-    const calendar = ref<VNodeRef>("")
+    const today = ref<Date>(new Date())
+    const categories: string[] = ["Profissional 1", "Profissional 2"]
     const events: Array<Event> = [
         {
             title: 'Everto',
@@ -43,6 +53,4 @@ definePageMeta({
             color: "blue",
         },
     ]
-
-  const today = ref<Date[]>([new Date()])
 </script>
